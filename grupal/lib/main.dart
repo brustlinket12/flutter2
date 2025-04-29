@@ -3,7 +3,7 @@ import 'components/header.dart';
 import 'components/footer.dart';
 import 'components/atencion_cliente.dart';
 import 'components/scrollbar.dart';
-import 'paginas/inicio.dart'; // Asegúrate que esta ruta sea correcta también
+import 'paginas/inicio.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> _pages = [
     Center(child: Text('Mensajes')),
-    InicioPage(), // Aquí se muestra la página de inicio
+    InicioPage(),
     Center(child: Text('Carrito')),
     Center(child: Text('Tickets')),
   ];
