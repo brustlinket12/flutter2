@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'components/header.dart';
 import 'components/footer.dart';
+import 'components/atencion_cliente.dart';
 
 void main() {
   runApp(MyApp());
@@ -41,6 +42,13 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  void _abrirAtencionCliente(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => const AtencionCliente(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,6 +70,10 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       appBar: Header(),
       body: _pages[_currentIndex],
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => _abrirAtencionCliente(context),
+        child: const Icon(Icons.support_agent)
+      ),
       bottomNavigationBar: Footer(
         currentIndex: _currentIndex,
         onTap: _onTabTapped,
