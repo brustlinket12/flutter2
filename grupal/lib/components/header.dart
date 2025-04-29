@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grupal/components/categorias.dart';
 
 class Header extends StatelessWidget implements PreferredSizeWidget {
   @override
@@ -12,12 +13,13 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
       title: Row(
         children: [
           Builder(
-            builder: (context) => IconButton(
-              icon: Icon(Icons.menu, color: Colors.white),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-            ),
+            builder:
+                (context) => IconButton(
+                  icon: Icon(Icons.menu, color: Colors.white),
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
+                ),
           ),
           Expanded(
             child: Container(

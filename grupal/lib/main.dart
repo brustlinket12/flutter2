@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'components/header.dart';
 import 'components/footer.dart';
 import 'components/atencion_cliente.dart';
+import 'components/scrollbar.dart';
+import 'paginas/inicio.dart'; // Asegúrate que esta ruta sea correcta también
 
 void main() {
   runApp(MyApp());
@@ -13,9 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Mi App',
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-      ),
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
       home: HomeScreen(),
     );
   }
@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> _pages = [
     Center(child: Text('Mensajes')),
-    Center(child: Text('Inicio')),
+    InicioPage(), // Aquí se muestra la página de inicio
     Center(child: Text('Carrito')),
     Center(child: Text('Tickets')),
   ];
@@ -43,9 +43,13 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _abrirAtencionCliente(BuildContext context) {
+    showDialog(context: context, builder: (context) => const AtencionCliente());
+  }
+
+  void _BarraDeNavegacion(BuildContext context) {
     showDialog(
       context: context,
-      builder: (context) => const AtencionCliente(),
+      builder: (context) => const ScrollbarExample(),
     );
   }
 
@@ -63,16 +67,18 @@ class _HomeScreenState extends State<HomeScreen> {
               title: Text('Inicio'),
               onTap: () {
                 Navigator.pop(context);
+                _BarraDeNavegacion(context);
               },
             ),
           ],
         ),
       ),
       appBar: Header(),
+
       body: _pages[_currentIndex],
       floatingActionButton: FloatingActionButton(
         onPressed: () => _abrirAtencionCliente(context),
-        child: const Icon(Icons.support_agent)
+        child: const Icon(Icons.support_agent),
       ),
       bottomNavigationBar: Footer(
         currentIndex: _currentIndex,
