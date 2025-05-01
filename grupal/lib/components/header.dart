@@ -9,7 +9,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: const Color.fromARGB(255, 255, 0, 238),
       title: Row(
         children: [
           Builder(
@@ -40,7 +40,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
           CircleAvatar(
-            backgroundImage: AssetImage('assets/images/profile.jpg'),
+            backgroundImage: AssetImage('assets/images/profile.png'),
             radius: 18,
           ),
         ],
